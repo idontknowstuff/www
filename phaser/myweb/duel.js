@@ -187,10 +187,6 @@ class Duel extends Phaser.Scene {
             gameObject.x = dropZone.x;
             gameObject.y = dropZone.y;
 
-            // console.log(gameObject.name);
-            // console.log(dropZone.name);
-            // console.log(dropZone)
-
             var change = parseInt(dropZone.name);
             
             // console.log("CHECK")
@@ -233,9 +229,9 @@ class Duel extends Phaser.Scene {
         // loads question
         this.loadquestion();
         
-        // setInterval(this.countdown, 1000);
+        // sets timer
         setInterval(this.countdown.bind(this), 1000);
-        // console.log(this.timer);
+
 
         // check button to see if answer is correct
         var SubmitBtn = this.add.image(700, 150, "checkBtn");
