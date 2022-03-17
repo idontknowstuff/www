@@ -1,0 +1,119 @@
+<!-- C:\wamp64\www\phaser\wee\assets -->
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>CODING GAME</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+        var config = {
+            type: Phaser.AUTO,
+            width: 1000,
+            height: 600,
+            // physics: {
+            //     default: 'arcade',
+            //     arcade: {
+            //         gravity: { y: 300 },
+            //         debug: false
+            //     }
+            // },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config);
+        var ifblock;
+
+
+        function preload(){
+            this.load.image('ifblock', 'assets/if_3.png');
+            this.load.image('background', 'assets/background.png');
+            this.load.image('board', 'assets/board.png');
+        };
+
+        function create(){
+            this.add.image(500, 300, 'background');
+            this.add.image(500, 500, 'board');
+            ifblock = this.add.sprite(150, 500, 'ifblock');
+            ifblock.setInteractive();
+
+            this.input.setDraggable(ifblock);
+
+            this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+
+                gameObject.x = dragX;
+                gameObject.y = dragY;
+
+            });
+
+            //  A drop zone
+            var zone = this.add.zone(500, 300, 300, 300).setRectangleDropZone(300, 300);
+
+            //  Just a visual display of the drop zone
+            var graphics = this.add.graphics();
+            graphics.lineStyle(2, 0xffff00);
+            graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+            
+
+            this.input.on('dragenter', function (pointer, gameObject, dropZone) {
+
+                graphics.clear();
+                graphics.lineStyle(2, 0x00ffff);
+                graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+
+            });
+
+            this.input.on('dragleave', function (pointer, gameObject, dropZone) {
+
+                graphics.clear();
+                graphics.lineStyle(2, 0xffff00);
+                graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+
+            });
+
+            this.input.on('drop', function (pointer, gameObject, dropZone) {
+
+                gameObject.x = dropZone.x;
+                gameObject.y = dropZone.y;
+
+                gameObject.input.enabled = false;
+
+            });
+
+            this.input.on('dragend', function (pointer, gameObject, dropped) {
+
+                if (!dropped)
+                {
+                    gameObject.x = gameObject.input.dragStartX;
+                    gameObject.y = gameObject.input.dragStartY;
+                }
+
+                graphics.clear();
+                graphics.lineStyle(2, 0xffff00);
+                graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+
+            });
+        };
+
+
+
+        function update(){
+
+        };
+
+</script>
+
+</body>
+</html>
