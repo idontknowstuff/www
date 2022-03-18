@@ -11,13 +11,9 @@ class Duel extends Phaser.Scene {
         this.block3text;
         this.block4text;
         this.time;
-        // this.zone1;
-        // this.zone2;
-        // this.zone3;
-        // this.zone4;
+
         this.trueanswer;
         this.rightwrong;
-        // this.answer = ["0","0","0","0"];
 
         // global variables
         this.playerProgress = 0;
@@ -81,44 +77,13 @@ class Duel extends Phaser.Scene {
         this.block2 = this.add.image(575, 350, "blocks").setName("2");
         this.block3 = this.add.image(575, 450, "blocks").setName("3");
         this.block4 = this.add.image(575, 550, "blocks").setName("4");
-        // dup 3 more time
-        // this.block1 = this.add.image(575, 250, "blocks").setName("1");
-        // this.block2 = this.add.image(575, 350, "blocks").setName("2");
-        // this.block3 = this.add.image(575, 450, "blocks").setName("3");
-        // this.block4 = this.add.image(575, 550, "blocks").setName("4");
-        // this.block1 = this.add.image(575, 250, "blocks").setName("1");
-        // this.block2 = this.add.image(575, 350, "blocks").setName("2");
-        // this.block3 = this.add.image(575, 450, "blocks").setName("3");
-        // this.block4 = this.add.image(575, 550, "blocks").setName("4");
-        // this.block1 = this.add.image(575, 250, "blocks").setName("1");
-        // this.block2 = this.add.image(575, 350, "blocks").setName("2");
-        // this.block3 = this.add.image(575, 450, "blocks").setName("3");
-        // this.block4 = this.add.image(575, 550, "blocks").setName("4");
+
 
         // empty text variables for later inserting uses 
         this.block1text = this.add.text(200,300, "");
         this.block2text = this.add.text(200,300, "");
         this.block3text = this.add.text(200,300, "");
         this.block4text = this.add.text(200,300, "");
-        // dup 3 more time
-        // this.block1 = this.add.image(575, 250, "blocks").setName("1");
-        // this.block2 = this.add.image(575, 350, "blocks").setName("2");
-        // this.block3 = this.add.image(575, 450, "blocks").setName("3");
-        // this.block4 = this.add.image(575, 550, "blocks").setName("4");
-        // this.block1 = this.add.image(585, 250, "blocks").setName("1");
-        // this.block2 = this.add.image(575, 350, "blocks").setName("2");
-        // this.block3 = this.add.image(575, 450, "blocks").setName("3");
-        // this.block4 = this.add.image(575, 550, "blocks").setName("4");
-        // this.block1 = this.add.image(575, 250, "blocks").setName("1");
-        // this.block2 = this.add.image(575, 350, "blocks").setName("2");
-        // this.block3 = this.add.image(575, 450, "blocks").setName("3");
-        // this.block4 = this.add.image(575, 550, "blocks").setName("4");
-
-        // set names for blocks
-        // block1.setName("block1");
-        // block2.setName("block2");
-        // block3.setName("block3");
-        // block4.setName("block4");
 
         // make the blocks draggable
         this.block1.setInteractive();
@@ -130,10 +95,12 @@ class Duel extends Phaser.Scene {
         this.input.setDraggable(this.block3);
         this.input.setDraggable(this.block4);
 
-        this.input.on('dragstart', function (pointer, gameObject, dragX, dragY){
+        // currently not used
+        // this.input.on('dragstart', function (pointer, gameObject, dragX, dragY){
             
-        });
+        // });
 
+        // when object is dragged
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
 
             gameObject.x = dragX;
@@ -278,7 +245,14 @@ class Duel extends Phaser.Scene {
         console.log(ans);
         console.log(this.trueanswer);
 
-        this.block1.x = 400;
+        this.block1.x = 575;
+        this.block1.y = 250;
+        this.block2.x = 575;
+        this.block2.y = 350;
+        this.block3.x = 575;
+        this.block3.y = 450;
+        this.block4.x = 575;
+        this.block4.y = 550;
 
         for (let i = 0; i < 4; i++){
             if (ans[i] == this.trueanswer[i]){
