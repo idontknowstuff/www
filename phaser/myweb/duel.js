@@ -96,11 +96,8 @@ class Duel extends Phaser.Scene {
         this.input.setDraggable(this.block3);
         this.input.setDraggable(this.block4);
 
-        // currently not used
-        // this.input.on('dragstart', function (pointer, gameObject, dragX, dragY){
-            
-        // });
 
+        
         // when object is dragged
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
 
@@ -128,13 +125,8 @@ class Duel extends Phaser.Scene {
 
         this.input.on('dragenter', function (pointer, gameObject, dropZone) {
 
-            graphics.clear();
             graphics.lineStyle(2, 0x00ffff);
-            console.log(this.zone2.x);
             graphics.strokeRect(dropZone.x - dropZone.input.hitArea.width / 2, dropZone.y - dropZone.input.hitArea.height / 2, dropZone.input.hitArea.width, dropZone.input.hitArea.height);
-            // graphics.strokeRect(this.zone2.x - this.zone2.input.hitArea.width / 2, this.zone2.y - this.zone2.input.hitArea.height / 2, this.zone2.input.hitArea.width, this.zone2.input.hitArea.height);
-            // graphics.strokeRect(this.zone3.x - this.zone3.input.hitArea.width / 2, this.zone3.y - this.zone3.input.hitArea.height / 2, this.zone3.input.hitArea.width, this.zone3.input.hitArea.height);
-            // graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
 
         }, this);
 
@@ -142,11 +134,11 @@ class Duel extends Phaser.Scene {
 
             graphics.clear();
             graphics.lineStyle(2, 0xffff00);
-            graphics.strokeRect(dropZone.x - dropZone.input.hitArea.width / 2, dropZone.y - dropZone.input.hitArea.height / 2, dropZone.input.hitArea.width, dropZone.input.hitArea.height);
-            // graphics.strokeRect(this.zone1.x - this.zone1.input.hitArea.width / 2, this.zone1.y - this.zone1.input.hitArea.height / 2, this.zone1.input.hitArea.width, this.zone1.input.hitArea.height);
-            // graphics.strokeRect(this.zone2.x - this.zone2.input.hitArea.width / 2, this.zone2.y - this.zone2.input.hitArea.height / 2, this.zone2.input.hitArea.width, this.zone2.input.hitArea.height);
-            // graphics.strokeRect(this.zone3.x - this.zone3.input.hitArea.width / 2, this.zone3.y - this.zone3.input.hitArea.height / 2, this.zone3.input.hitArea.width, this.zone3.input.hitArea.height);
-            // graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
+            // graphics.strokeRect(dropZone.x - dropZone.input.hitArea.width / 2, dropZone.y - dropZone.input.hitArea.height / 2, dropZone.input.hitArea.width, dropZone.input.hitArea.height);
+            graphics.strokeRect(this.zone1.x - this.zone1.input.hitArea.width / 2, this.zone1.y - this.zone1.input.hitArea.height / 2, this.zone1.input.hitArea.width, this.zone1.input.hitArea.height);
+            graphics.strokeRect(this.zone2.x - this.zone2.input.hitArea.width / 2, this.zone2.y - this.zone2.input.hitArea.height / 2, this.zone2.input.hitArea.width, this.zone2.input.hitArea.height);
+            graphics.strokeRect(this.zone3.x - this.zone3.input.hitArea.width / 2, this.zone3.y - this.zone3.input.hitArea.height / 2, this.zone3.input.hitArea.width, this.zone3.input.hitArea.height);
+            graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
 
         },this);
 
@@ -174,15 +166,15 @@ class Duel extends Phaser.Scene {
                 gameObject.y = gameObject.input.dragStartY;
             }
 
-            // graphics.clear();
-            // graphics.lineStyle(2, 0xffff00);
+            graphics.clear();
+            graphics.lineStyle(2, 0xffff00);
             // graphics.strokeRect(dropZone.x - dropZone.input.hitArea.width / 2, dropZone.y - dropZone.input.hitArea.height / 2, dropZone.input.hitArea.width, dropZone.input.hitArea.height);
-            // graphics.strokeRect(this.zone1.x - this.zone1.input.hitArea.width / 2, this.zone1.y - this.zone1.input.hitArea.height / 2, this.zone1.input.hitArea.width, this.zone1.input.hitArea.height);
-            // graphics.strokeRect(this.zone2.x - this.zone2.input.hitArea.width / 2, this.zone2.y - this.zone2.input.hitArea.height / 2, this.zone2.input.hitArea.width, this.zone2.input.hitArea.height);
-            // graphics.strokeRect(this.zone3.x - this.zone3.input.hitArea.width / 2, this.zone3.y - this.zone3.input.hitArea.height / 2, this.zone3.input.hitArea.width, this.zone3.input.hitArea.height);
-            // graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
+            graphics.strokeRect(this.zone1.x - this.zone1.input.hitArea.width / 2, this.zone1.y - this.zone1.input.hitArea.height / 2, this.zone1.input.hitArea.width, this.zone1.input.hitArea.height);
+            graphics.strokeRect(this.zone2.x - this.zone2.input.hitArea.width / 2, this.zone2.y - this.zone2.input.hitArea.height / 2, this.zone2.input.hitArea.width, this.zone2.input.hitArea.height);
+            graphics.strokeRect(this.zone3.x - this.zone3.input.hitArea.width / 2, this.zone3.y - this.zone3.input.hitArea.height / 2, this.zone3.input.hitArea.width, this.zone3.input.hitArea.height);
+            graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
 
-        });
+        },this);
 
         // back button
         var BackBtn = this.add.image(50, 25, "Back");
