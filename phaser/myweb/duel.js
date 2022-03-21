@@ -26,6 +26,7 @@ class Duel extends Phaser.Scene {
         this.enemyProgressText;
         this.playerY;
         this.enemyY;
+
     }
 
     
@@ -42,7 +43,7 @@ class Duel extends Phaser.Scene {
 
         this.trueanswer = arr;
 
-        const useranswer = ["0","0","0","0"];
+        var useranswer = ["0","0","0","0"];
         this.rightwrong = [0,0,0,0];
 
         // background
@@ -154,18 +155,13 @@ class Duel extends Phaser.Scene {
             gameObject.x = dropZone.x;
             gameObject.y = dropZone.y;
 
+            // changes the index that is needed to be changed into integer
             var change = parseInt(dropZone.name);
             
-            // console.log("CHECK")
-            // console.log(change);
-            // console.log(gameObject.name);
-            // console.log(answer[change-1]);
             // change answers
             useranswer[change-1] = gameObject.name;
-            // console.log(answer[change-1]);
 
-            // console.log(answer);
-
+            // allows inputs
             gameObject.input.enabled = true;
 
         });
@@ -204,6 +200,7 @@ class Duel extends Phaser.Scene {
         var SubmitBtn = this.add.image(700, 150, "checkBtn");
         SubmitBtn.setInteractive();
         SubmitBtn.on('pointerdown', () => this.clickSubmit(useranswer));
+        // resets answer for next attempt
     }
 
     update(){
@@ -245,6 +242,7 @@ class Duel extends Phaser.Scene {
         console.log(ans);
         console.log(this.trueanswer);
 
+        // resets block position after submit
         this.block1.x = 575;
         this.block1.y = 250;
         this.block2.x = 575;
@@ -264,17 +262,26 @@ class Duel extends Phaser.Scene {
             }
         }
         if (correct){
+            // if the player gets correct combo
             console.log("pass");
             this.UpscorePlayer();
             console.log(this.playerProgress);
-            
+            // resets the answer after submit
+            ans[0] = "0";
+            ans[1] = "0";
+            ans[2] = "0";
+            ans[3] = "0";
         }
         else{
+            // player gets it wrong
             for (let i = 0; i < 4; i++){
                 if (whichwrong[i]){
+                    // finds which ones are wrong
                     console.log(i + " is wrong");
                 }
             }
+            this.playerHealth -= 1;
+            console.log("ouch");
         }
     }
 
@@ -330,9 +337,6 @@ class Duel extends Phaser.Scene {
                 this.trueanswer[2] = data.questions[0].answer[2];
                 this.trueanswer[3] = data.questions[0].answer[3];
                 console.log(this.trueanswer);
-                // var text = this.add.text(200,400,data.questions[1].blocks[1], style);
-                // var text = this.add.text(200,500,data.questions[1].blocks[2], style);
-                // var text = this.add.text(200,550,data.questions[1].blocks[3], style);
 
 
             })
