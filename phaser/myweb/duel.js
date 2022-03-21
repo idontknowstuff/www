@@ -207,6 +207,11 @@ class Duel extends Phaser.Scene {
         // graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
     }
 
+    loseHealth(){
+        this.playerHealth -= 1;
+        this.playerHealthText.setText(this.playerHealth);
+    }
+
     countdown(){
         this.timer -= 1;
         this.time.setText("Time left: " + this.timer);
@@ -272,8 +277,7 @@ class Duel extends Phaser.Scene {
                     console.log(i + " is wrong");
                 }
             }
-            this.playerHealth -= 1;
-            console.log("ouch");
+            this.loseHealth();
         }
     }
 
