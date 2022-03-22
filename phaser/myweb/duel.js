@@ -26,7 +26,7 @@ class Duel extends Phaser.Scene {
         this.enemyProgressText;
         this.playerY;
         this.enemyY;
-
+        this.mentionVictory = false;
     }
 
     
@@ -213,9 +213,38 @@ class Duel extends Phaser.Scene {
     }
 
     countdown(){
-        this.timer -= 1;
-        this.time.setText("Time left: " + this.timer);
-        // console.log(this.timer);
+        if (this.timer >= 0){
+            this.timer -= 10;
+            this.time.setText("Time left: " + this.timer);
+        }
+        else{
+            if (this.mentionVictory == false){
+                this.timesUp();
+                this.mentionVictory = true;
+            }
+        }
+    }
+
+    timesUp(){
+        if (this.playerProgress > this.enemyProgress){
+            console.log("PLAYER WINS!");
+        }
+        else if(this.playerProgress < this.enemyProgress){
+            console.log("ENEMY WINS!");
+        }
+        else{
+            console.log("TIE BREAKER! Who has the most health WINS!");
+
+            if (this.playerHealth > this.enemyHealth){
+                console.log("PLAYERWINS");
+            }
+            else if (this.playerHealth < this.enemyHealth){
+                console.log("ENEMYWINS");
+            }
+            else{
+                console.log("REAL TIE :|");
+            }
+        }
     }
 
     clickBackButton(){
