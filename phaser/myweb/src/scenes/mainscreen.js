@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 class mainscreen extends Phaser.Scene {
     constructor() {
         super("playGame");
@@ -78,3 +80,5 @@ class mainscreen extends Phaser.Scene {
 
 
 }
+
+export default mainscreen;

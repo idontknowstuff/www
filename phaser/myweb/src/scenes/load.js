@@ -1,20 +1,33 @@
+import Phaser from "phaser";
+
+import background from '../assets/background.png';
+import DuelBtn from '../assets/DuelBtn.png';
+import SinglePlayer from '../assets/singlePlayerBtn.png';
+import Back from '../assets/back.png';
+import WorkPlace from '../assets/workplace.png';
+import QuestionPlace from '../assets/questionplace.png';
+import MatchBtn from '../assets/match.png';
+import title from '../assets/title.png';
+import go from '../assets/go.png';
+import blocks from '../assets/blocks.png';
+import checkBtn from '../assets/checkBtn.png';
 class load extends Phaser.Scene {
     constructor() {
         super("loadGame");
     }
 
     preload(){
-        this.load.image("background", "assets/background.png");
-        this.load.image("DuelBtn", "assets/DuelBtn.png");
-        this.load.image("SinglePlayer", "assets/singlePlayerBtn.png");
-        this.load.image("Back", "assets/back.png");
-        this.load.image("WorkPlace", "assets/workplace.png");
-        this.load.image("QuestionPlace", "assets/questionplace.png");
-        this.load.image("MatchBtn", "assets/match.png");
-        this.load.image("title", "assets/title.png");
-        this.load.image("go", "assets/go.png");
-        this.load.image("blocks", "assets/blocks.png");
-        this.load.image("checkBtn", "assets/checkBtn.png");
+        this.load.image("background", background);
+        this.load.image("DuelBtn", DuelBtn);
+        this.load.image("SinglePlayer", SinglePlayer);
+        this.load.image("Back", Back);
+        this.load.image("WorkPlace", WorkPlace);
+        this.load.image("QuestionPlace", QuestionPlace);
+        this.load.image("MatchBtn", MatchBtn);
+        this.load.image("title", title);
+        this.load.image("go", go);
+        this.load.image("blocks", blocks);
+        this.load.image("checkBtn", checkBtn);
     }
 
     create(){
@@ -25,3 +38,5 @@ class load extends Phaser.Scene {
 
 
 }
+
+export default load;

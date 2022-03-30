@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 class DuelPrep extends Phaser.Scene {
     constructor() {
         super("DuelPrep");
@@ -36,3 +38,5 @@ class DuelPrep extends Phaser.Scene {
         this.scene.switch('Duel');
     }
 }
+
+export default DuelPrep;

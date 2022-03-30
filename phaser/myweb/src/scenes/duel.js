@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+import Data from "../data.json";
 class Duel extends Phaser.Scene {
     constructor() {
         super("Duel");
@@ -104,14 +106,14 @@ class Duel extends Phaser.Scene {
             gameObject.x = dragX;
             gameObject.y = dragY;
 
-
+            console.log("dragged");
         });
 
         //  4 drop zones and sets the names
-        this.zone1 = this.add.zone(200, 250, 300, 300).setRectangleDropZone(100, 50).setName("1");
-        this.zone2 = this.add.zone(200, 350, 300, 400).setRectangleDropZone(100, 50).setName("2");
-        this.zone3 = this.add.zone(200, 450, 300, 500).setRectangleDropZone(100, 50).setName("3");
-        this.zone4 = this.add.zone(200, 550, 300, 600).setRectangleDropZone(100, 50).setName("4");
+        this.zone1 = this.add.zone(200, 250, 300, 300).setRectangleDropZone(100, 50).setName("11111");
+        this.zone2 = this.add.zone(200, 350, 300, 400).setRectangleDropZone(100, 50).setName("22222");
+        this.zone3 = this.add.zone(200, 450, 300, 500).setRectangleDropZone(100, 50).setName("33333");
+        this.zone4 = this.add.zone(200, 550, 300, 600).setRectangleDropZone(100, 50).setName("44444");
 
 
         //  Just a visual display of the drop zone
@@ -127,7 +129,7 @@ class Duel extends Phaser.Scene {
 
             graphics.lineStyle(2, 0x00ffff);
             graphics.strokeRect(dropZone.x - dropZone.input.hitArea.width / 2, dropZone.y - dropZone.input.hitArea.height / 2, dropZone.input.hitArea.width, dropZone.input.hitArea.height);
-
+            console.log("yes");
         }, this);
 
         this.input.on('dragleave', function (pointer, gameObject, dropZone) {
@@ -344,7 +346,7 @@ class Duel extends Phaser.Scene {
     }
 
     loadquestion(){
-        fetch('./data.json')
+        fetch(Data)
             .then(response => response.json())
             .then(data => {
                 var style = { font: "20px Arial", fill: "#00ff00", align: "center", wordWrap: { width: 600 } };
@@ -368,3 +370,5 @@ class Duel extends Phaser.Scene {
             .catch(error => console.log(error));
     }
 }
+
+export default Duel;

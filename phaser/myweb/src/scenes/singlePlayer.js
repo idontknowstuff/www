@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 class singlePlayer extends Phaser.Scene {
     constructor() {
         super("singlePlayer");
@@ -27,3 +29,5 @@ class singlePlayer extends Phaser.Scene {
 
 
 }
+
+export default singlePlayer;

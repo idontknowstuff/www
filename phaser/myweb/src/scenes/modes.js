@@ -1,3 +1,5 @@
+import Phaser from "phaser";
+
 class modes extends Phaser.Scene {
     constructor() {
         super("chooseGame");
@@ -39,3 +41,5 @@ class modes extends Phaser.Scene {
 
 
 }
+
+export default modes;
