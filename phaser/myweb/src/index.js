@@ -1,3 +1,10 @@
+import load from 'load.js';
+import mainscreen from 'mainscreen.js';
+import modes from 'modes.js';
+import singlePlayer from 'singlePlayer.js';
+import Duel from 'duel.js';
+import DuelPrep from 'duelprep.js';
+
 var config = {
     width: 1000,
     height: 600,
