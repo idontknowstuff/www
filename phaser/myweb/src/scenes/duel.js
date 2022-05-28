@@ -29,6 +29,9 @@ class Duel extends Phaser.Scene {
         this.playerY;
         this.enemyY;
         this.mentionVictory = false;
+
+        // keyspaces
+        this.keySpace;
     }
 
     
@@ -110,11 +113,14 @@ class Duel extends Phaser.Scene {
         });
 
         //  4 drop zones and sets the names
-        this.zone1 = this.add.zone(200, 250, 300, 300).setRectangleDropZone(100, 50).setName("11111");
-        this.zone2 = this.add.zone(200, 350, 300, 400).setRectangleDropZone(100, 50).setName("22222");
-        this.zone3 = this.add.zone(200, 450, 300, 500).setRectangleDropZone(100, 50).setName("33333");
-        this.zone4 = this.add.zone(200, 550, 300, 600).setRectangleDropZone(100, 50).setName("44444");
+        this.zone1 = this.add.zone(200, 250, 100, 50).setRectangleDropZone(100,50).setName("1");
+        this.zone2 = this.add.zone(200, 350, 100, 50).setRectangleDropZone(100,50).setName("2");
+        this.zone3 = this.add.zone(200, 450, 100, 50).setRectangleDropZone(100,50).setName("3");
+        this.zone4 = this.add.zone(200, 550, 100, 50).setRectangleDropZone(100,50).setName("4");
 
+        
+        // registering input keys for debugging
+        this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         //  Just a visual display of the drop zone
         var graphics = this.add.graphics();
@@ -129,7 +135,6 @@ class Duel extends Phaser.Scene {
 
             graphics.lineStyle(2, 0x00ffff);
             graphics.strokeRect(dropZone.x - dropZone.input.hitArea.width / 2, dropZone.y - dropZone.input.hitArea.height / 2, dropZone.input.hitArea.width, dropZone.input.hitArea.height);
-            console.log("yes");
         }, this);
 
         this.input.on('dragleave', function (pointer, gameObject, dropZone) {
@@ -207,6 +212,11 @@ class Duel extends Phaser.Scene {
         // graphics.strokeRect(this.zone2.x - this.zone2.input.hitArea.width / 2, this.zone2.y - this.zone2.input.hitArea.height / 2, this.zone2.input.hitArea.width, this.zone2.input.hitArea.height);
         // graphics.strokeRect(this.zone3.x - this.zone3.input.hitArea.width / 2, this.zone3.y - this.zone3.input.hitArea.height / 2, this.zone3.input.hitArea.width, this.zone3.input.hitArea.height);
         // graphics.strokeRect(this.zone4.x - this.zone4.input.hitArea.width / 2, this.zone4.y - this.zone4.input.hitArea.height / 2, this.zone4.input.hitArea.width, this.zone4.input.hitArea.height);
+        if (this.keySpace.isDown){
+            console.log("SPACEKEY IS DOWN");
+            console.log(this.zone1.x);
+            console.log(this.input.mousePointer.y);
+        }
     }
 
     loseHealth(){
