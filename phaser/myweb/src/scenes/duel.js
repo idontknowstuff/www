@@ -318,6 +318,12 @@ class Duel extends Phaser.Scene {
                     console.log(i + " is wrong");
                 }
             }
+            // reset answer after wrong as well
+            ans[0] = "0";
+            ans[1] = "0";
+            ans[2] = "0";
+            ans[3] = "0";
+            // penalty
             this.loseHealth();
         }
     }
